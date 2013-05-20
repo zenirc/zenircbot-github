@@ -6,7 +6,7 @@ var sub = zen.get_redis_client()
 var github_config = api.load_config(path.join(__dirname, 'github.json'))
 
 
-zen.register_commands("github.js", [])
+zen.register_commands('github.js', [])
 
 sub.subscribe('web_in')
 sub.on('message', function(channel, message){

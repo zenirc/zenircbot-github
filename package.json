@@ -9,8 +9,7 @@
         "url": "git://github.com/zenirc/zenircbot-github.git"
     },
     "dependencies": {
-        "redis": "0.7.2",
-        "zenircbot-api": "2.3.0",
+        "zenircbot-api": "2.3.1",
         "irc-colors": "1.0.3"
     },
     "engines": {
