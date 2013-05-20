@@ -1,0 +1,4 @@
+{
+    "somerepo": ["#somechannel"],
+    "default_channel": ["#default"]
+}
