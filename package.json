@@ -1,17 +1,17 @@
 {
     "author": "Wraithan (http://wraithan.net)",
-    "name": "weblistener",
-    "description": "A simple listener that takes POST bodies and puts them in a Redis Pub/Sub channel",
+    "name": "zenircbot-github",
+    "description": "Uses weblistener and ZenIRCBot to create channel notifications.",
     "version": "0.1.0",
-    "homepage": "http://github.com/zenirc/weblistener",
+    "homepage": "http://github.com/zenirc/zenircbot-github",
     "repository": {
         "type": "git",
-        "url": "git://github.com/zenirc/weblistener.git"
+        "url": "git://github.com/zenirc/zenircbot-github.git"
     },
     "dependencies": {
         "redis": "0.7.2",
         "zenircbot-api": "2.3.0",
-        "express": "3.2.4"
+        "irc-colors": "1.0.3"
     },
     "engines": {
         "node": "*"
