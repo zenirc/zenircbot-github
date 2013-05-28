@@ -17,8 +17,18 @@ sub.on('message', function(channel, message){
   var data = message.body
     , branch = data.ref.substr(11)
     , repo = data.repository.name
+    , full_repo = data.repository.owner.name + '/' + repo
     , name_str = ''
-    , irc_channel = github_config[repo] || github_config.default_channel
+    , channels = []
+
+  Object.keys(github_config.patterns).forEach(function(pattern) {
+    var regex = new RegExp(pattern)
+    if (regex.test(full_repo)) {
+      channels += github_config.patterns[pattern]
+    }
+  })
+
+  channels = channels || github_config.default_channel
 
   data.commits.forEach(function(commit) {
     if (commit.author.username) {
@@ -29,10 +39,10 @@ sub.on('message', function(channel, message){
     } else {
       name_str = ''
     }
-    message = (repo + ': ' + commit.id.substr(0,7) + ' *' +
+    message = (full_repo + ': ' + commit.id.substr(0,7) + ' *' +
                colors.green(branch) + '* ' +
                commit.message + name_str)
-    zen.send_privmsg(irc_channel, message)
-    console.log(channel + ' -> ' + message)
+    zen.send_privmsg(channels, message)
+    console.log(channels + ' -> ' + message)
   })
 })
