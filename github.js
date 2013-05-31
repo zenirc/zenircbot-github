@@ -14,7 +14,7 @@ sub.on('message', function(channel, message){
     return null
   }
 
-  var data = message.body
+  var data = JSON.parse(message.body.payload)
     , branch = data.ref.substr(11)
     , repo = data.repository.name
     , full_repo = data.repository.owner.name + '/' + repo
